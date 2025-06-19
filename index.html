@@ -196,7 +196,10 @@
       if (input === "loki") {
         hint.textContent = "Coupable identifié !";
         hint.style.color = 'green';
-        document.getElementById("videoContainer").style.display = 'block';
+        setTimeout(() => {
+          document.getElementById("videoContainer").style.display = 'block';
+        }, 100);
+
       } else {
         hint.textContent = "Ce n'est pas le bon coupable.";
         hint.style.color = 'red';

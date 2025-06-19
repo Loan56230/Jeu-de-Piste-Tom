@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de Piste</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('data:image/jpeg;base64,/9j/...') no-repeat center center fixed;
+      background-size: cover;
+      padding: 2em;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #4a90e2;
+    }
+    .step {
+      display: none;
+      margin-top: 2em;
+      padding: 1em;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .visible {
+      display: block;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.5em;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #357ab7;
+    }
+    .success {
+      color: green;
+      margin-top: 0.5em;
+    }
+    video {
+      width: 100%;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Jeu de Piste</h1>
+
+  <div id="step1" class="step visible">
+    <p><strong>Indice A n°1</strong></p>
+    <p><strong>Énigme n°1 :</strong></p>
+    <input type="text" id="answer1" placeholder="Votre réponse">
+    <button onclick="checkAnswer(1)">Valider</button>
+    <p id="hint1" class="success"></p>
+  </div>
+
+  <div id="step2" class="step">
+    <p><strong>Indice B n°1</strong></p>
+    <p><strong>Indice A n°2</strong></p>
+    <p><strong>Énigme n°2 :</strong></p>
+    <input type="text" id="answer2" placeholder="Votre réponse">
+    <button onclick="checkAnswer(2)">Valider</button>
+    <p id="hint2" class="success"></p>
+  </div>
+
+  <div id="step3" class="step">
+    <p><strong>Indice B n°2</strong></p>
+    <p><strong>Indice A n°3</strong></p>
+    <p><strong>Énigme n°3 :</strong></p>
+    <input type="text" id="answer3" placeholder="Votre réponse">
+    <button onclick="checkAnswer(3)">Valider</button>
+    <p id="hint3" class="success"></p>
+  </div>
+
+  <div id="step4" class="step">
+    <p><strong>Indice B n°3</strong></p>
+    <p><strong>Indice A n°4</strong></p>
+    <p><strong>Énigme n°4 :</strong></p>
+    <input type="text" id="answer4" placeholder="Votre réponse">
+    <button onclick="checkAnswer(4)">Valider</button>
+    <p id="hint4" class="success"></p>
+  </div>
+
+  <div id="step5" class="step">
+    <p><strong>Indice B n°4</strong></p>
+    <p><strong>Indice A n°5</strong></p>
+    <p><strong>Énigme n°5 :</strong></p>
+    <input type="text" id="answer5" placeholder="Votre réponse">
+    <button onclick="checkAnswer(5)">Valider</button>
+    <p id="hint5" class="success"></p>
+  </div>
+
+  <div id="step6" class="step">
+    <p><strong>Indice B n°5</strong></p>
+    <p><strong>Indice A n°6</strong></p>
+    <p><strong>Énigme n°6 :</strong></p>
+    <input type="text" id="answer6" placeholder="Votre réponse">
+    <button onclick="checkAnswer(6)">Valider</button>
+    <p id="hint6" class="success"></p>
+  </div>
+
+  <div id="finalStep" class="step">
+    <p><strong>Indice B n°6</strong></p>
+    <p><strong>Qui est le coupable ?</strong></p>
+    <input type="text" id="culprit" placeholder="Nom du coupable">
+    <button onclick="checkCulprit()">Valider</button>
+    <p id="finalHint" class="success"></p>
+    <div id="videoContainer" style="display:none;">
+      <video controls>
+        <source src="video_finale.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const answers = {
+      1: "lion",
+      2: "ombre",
+      3: "serviette",
+      4: "horloge",
+      5: "silence",
+      6: "temps"
+    };
+
+    function checkAnswer(step) {
+      const input = document.getElementById("answer" + step).value.trim().toLowerCase();
+      const hint = document.getElementById("hint" + step);
+
+      if (input === answers[step]) {
+        hint.textContent = "Bonne réponse !";
+        hint.style.color = 'green';
+        const nextStepId = step === 6 ? "finalStep" : "step" + (step + 1);
+        const nextStepElement = document.getElementById(nextStepId);
+        if (nextStepElement) {
+          nextStepElement.classList.add("visible");
+        }
+      } else {
+        hint.textContent = "Essaie encore...";
+        hint.style.color = 'red';
+      }
+    }
+
+    function checkCulprit() {
+      const input = document.getElementById("culprit").value.trim().toLowerCase();
+      const hint = document.getElementById("finalHint");
+      if (input === "Loki") {
+        hint.textContent = "Coupable identifié !";
+        hint.style.color = 'green';
+        document.getElementById("videoContainer").style.display = 'block';
+      } else {
+        hint.textContent = "Ce n'est pas le bon coupable.";
+        hint.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

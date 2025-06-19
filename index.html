@@ -80,7 +80,7 @@
   <div id="step1" class="step visible">
     <p><strong>Indice A n°1</strong></p>
     <p><strong>Énigme n°1 :</strong></p>
-    <input type="text" id="answer1" placeholder="Votre réponse">
+    <input type="text" id="answer1" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(1)">
     <button onclick="checkAnswer(1)">Valider</button>
     <p id="hint1" class="success"></p>
   </div>
@@ -89,7 +89,7 @@
     <p><strong>Indice B n°1</strong></p>
     <p><strong>Indice A n°2</strong></p>
     <p><strong>Énigme n°2 :</strong></p>
-    <input type="text" id="answer2" placeholder="Votre réponse">
+    <input type="text" id="answer2" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(2)">
     <button onclick="checkAnswer(2)">Valider</button>
     <p id="hint2" class="success"></p>
   </div>
@@ -98,7 +98,7 @@
     <p><strong>Indice B n°2</strong></p>
     <p><strong>Indice A n°3</strong></p>
     <p><strong>Énigme n°3 :</strong></p>
-    <input type="text" id="answer3" placeholder="Votre réponse">
+    <input type="text" id="answer3" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(3)">
     <button onclick="checkAnswer(3)">Valider</button>
     <p id="hint3" class="success"></p>
   </div>
@@ -107,7 +107,7 @@
     <p><strong>Indice B n°3</strong></p>
     <p><strong>Indice A n°4</strong></p>
     <p><strong>Énigme n°4 :</strong></p>
-    <input type="text" id="answer4" placeholder="Votre réponse">
+    <input type="text" id="answer4" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer()">
     <button onclick="checkAnswer(4)">Valider</button>
     <p id="hint4" class="success"></p>
   </div>
@@ -116,7 +116,7 @@
     <p><strong>Indice B n°4</strong></p>
     <p><strong>Indice A n°5</strong></p>
     <p><strong>Énigme n°5 :</strong></p>
-    <input type="text" id="answer5" placeholder="Votre réponse">
+    <input type="text" id="answer5" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(5)">
     <button onclick="checkAnswer(5)">Valider</button>
     <p id="hint5" class="success"></p>
   </div>
@@ -125,7 +125,7 @@
     <p><strong>Indice B n°5</strong></p>
     <p><strong>Indice A n°6</strong></p>
     <p><strong>Énigme n°6 :</strong></p>
-    <input type="text" id="answer6" placeholder="Votre réponse">
+    <input type="text" id="answer6" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(6)">
     <button onclick="checkAnswer(6)">Valider</button>
     <p id="hint6" class="success"></p>
   </div>
@@ -133,7 +133,7 @@
   <div id="finalStep" class="step">
     <p><strong>Indice B n°6</strong></p>
     <p><strong>Qui est le coupable ?</strong></p>
-    <input type="text" id="culprit" placeholder="Nom du coupable">
+    <input type="text" id="culprit" placeholder="Nom du coupable" onkeydown="if(event.key === 'Enter') checkCulprit()">
     <button onclick="checkCulprit()">Valider</button>
     <p id="finalHint" class="success"></p>
     <div id="videoContainer" style="display:none;">
@@ -146,12 +146,12 @@
 
   <script>
     const answers = {
-      1: "lion",
-      2: "ombre",
-      3: "serviette",
-      4: "horloge",
-      5: "silence",
-      6: "temps"
+      1: "1",
+      2: "2",
+      3: "3",
+      4: "4",
+      5: "5",
+      6: "6"
     };
 
     function checkAnswer(step) {

@@ -78,60 +78,60 @@
   <h1>Jeu de Piste</h1>
 
   <div id="step1" class="step visible">
-    <p><strong>Indice A n°1</strong></p>
+    <p><strong>Indice n°1 : C'est dans la cuisine que tout à commencé !</strong></p>
     <p><strong>Énigme n°1 :</strong></p>
-    <input type="text" id="answer1" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(1)">
+    <input type="text" id="answer1" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(1)">
     <button onclick="checkAnswer(1)">Valider</button>
     <p id="hint1" class="success"></p>
   </div>
 
   <div id="step2" class="step">
-    <p><strong>Indice B n°1</strong></p>
-    <p><strong>Indice A n°2</strong></p>
+    <p><strong>Indice A : Spider-Man innocenté.</strong></p>
+    <p><strong>Indice n°2 : Utilise le miroir de la salle de bain !</strong></p>
     <p><strong>Énigme n°2 :</strong></p>
-    <input type="text" id="answer2" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(2)">
+    <input type="text" id="answer2" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(2)">
     <button onclick="checkAnswer(2)">Valider</button>
     <p id="hint2" class="success"></p>
   </div>
 
   <div id="step3" class="step">
-    <p><strong>Indice B n°2</strong></p>
-    <p><strong>Indice A n°3</strong></p>
+    <p><strong>Indice B : Arme du crime = collant de super-héros.</strong></p>
+    <p><strong>Indice n°3 : Fouille l'espace "buanderie" en espérant qu'aucun indice ne soit passé en machine...</strong></p>
     <p><strong>Énigme n°3 :</strong></p>
-    <input type="text" id="answer3" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(3)">
+    <input type="text" id="answer3" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(3)">
     <button onclick="checkAnswer(3)">Valider</button>
     <p id="hint3" class="success"></p>
   </div>
 
   <div id="step4" class="step">
-    <p><strong>Indice B n°3</strong></p>
-    <p><strong>Indice A n°4</strong></p>
+    <p><strong>Indice C : Hulk innocenté.</strong></p>
+    <p><strong>Indice n°4 : La cabane de jardin recèle une preuve !</strong></p>
     <p><strong>Énigme n°4 :</strong></p>
-    <input type="text" id="answer4" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(4)">
+    <input type="text" id="answer4" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(4)">
     <button onclick="checkAnswer(4)">Valider</button>
     <p id="hint4" class="success"></p>
   </div>
 
   <div id="step5" class="step">
-    <p><strong>Indice B n°4</strong></p>
-    <p><strong>Indice A n°5</strong></p>
+    <p><strong>Indice D : Thor innocenté.</strong></p>
+    <p><strong>Indice n°5 Va voir dans le poulailler. Une seule balle cache la vérité !</strong></p>
     <p><strong>Énigme n°5 :</strong></p>
-    <input type="text" id="answer5" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(5)">
+    <input type="text" id="answer5" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(5)">
     <button onclick="checkAnswer(5)">Valider</button>
     <p id="hint5" class="success"></p>
   </div>
 
   <div id="step6" class="step">
-    <p><strong>Indice B n°5</strong></p>
-    <p><strong>Indice A n°6</strong></p>
+    <p><strong>Indice E : Loki est suspect principal.</strong></p>
+    <p><strong>Indice n°6 : Minne de rien, le dernier indice y est bien caché !</strong></p>
     <p><strong>Énigme n°6 :</strong></p>
-    <input type="text" id="answer6" placeholder="Votre réponse" onkeydown="if(event.key === 'Enter') checkAnswer(6)">
+    <input type="text" id="answer6" placeholder="Réponse à l'énigme" onkeydown="if(event.key === 'Enter') checkAnswer(6)">
     <button onclick="checkAnswer(6)">Valider</button>
     <p id="hint6" class="success"></p>
   </div>
 
   <div id="finalStep" class="step">
-    <p><strong>Indice B n°6</strong></p>
+    <p><strong>Indice F : Loki était sur place. Coupable probable.</strong></p>
     <p><strong>Qui est le coupable ?</strong></p>
     <input type="text" id="culprit" placeholder="Nom du coupable" onkeydown="if(event.key === 'Enter') checkCulprit()">
     <button onclick="checkCulprit()">Valider</button>

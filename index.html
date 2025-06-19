@@ -154,23 +154,36 @@
       6: "6"
     };
 
-    function checkAnswer(step) {
-      const input = document.getElementById("answer" + step).value.trim().toLowerCase();
-      const hint = document.getElementById("hint" + step);
+  function checkAnswer(step) {
+    const input = document.getElementById("answer" + step);
+    const answer = input.value.trim().toLowerCase();
+    const hint = document.getElementById("hint" + step);
 
-      if (input === answers[step]) {
-        hint.textContent = "Bonne réponse !";
-        hint.style.color = 'green';
-        const nextStepId = step === 6 ? "finalStep" : "step" + (step + 1);
-        const nextStepElement = document.getElementById(nextStepId);
-        if (nextStepElement) {
-          nextStepElement.classList.add("visible");
-        }
-      } else {
-        hint.textContent = "Essaie encore...";
-        hint.style.color = 'red';
+    if (answer === answers[step]) {
+      hint.textContent = "Bonne réponse !";
+      hint.style.color = 'green';
+    const nextStepId = step === 6 ? "finalStep" : "step" + (step + 1);
+    const nextStepElement = document.getElementById(nextStepId);
+    if (nextStepElement) {
+        nextStepElement.classList.add("visible");
+    }
+    if (step < 6) {
+    const nextInput = document.getElementById("answer" + (step + 1));
+      if (nextInput) {
+        nextInput.focus();
+    }
+    } else {
+      const culpritInput = document.getElementById("culprit");
+      if (culpritInput) {
+        culpritInput.focus();
       }
     }
+  } else {
+    hint.textContent = "Essaie encore...";
+    hint.style.color = 'red';
+  }
+}
+
 
     function checkCulprit() {
       const input = document.getElementById("culprit").value.trim().toLowerCase();
